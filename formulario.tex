@@ -1,0 +1,218 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath}    % need for subequations
+\usepackage{hyperref}   % use for hypertext links, including those to external documents and URLs
+\usepackage{esint}
+\usepackage{amsfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{makeidx}
+\usepackage{amsfonts}
+\usepackage{fullpage}
+\usepackage[spanish]{babel}
+\decimalpoint
+
+\title{Formulario de STRA - ETSIT UPM}
+\author{Carlos García-Mauriño}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\twocolumn
+
+\section{Caracterización de la señal digital}
+\label{sec:caracterizacion_de_la_senal_digital}
+
+\subsection{MIC}
+\label{sub:mic}
+
+\subsubsection{Intervalo en el segmento}
+\label{ssub:intervalo_en_el_segmento}
+
+\[ \frac{|x(n)| - \mbox{cota.inf.S }}{\Delta_S} \]
+
+\subsubsection{Valor de recontrucción}
+\label{ssub:valor_de_recontruccion}
+
+\[ y(n) = [\mbox{signo}] \left( \mbox{cota.inf.S }
+			+\frac{IC+\frac{1}{2}}{\frac{1}{\Delta_S}} \right) UTN \]
+
+\subsubsection{Error de recontrucción}
+\label{ssub:error_de_recontruccion}
+
+\[ q(n) = | x(n) - y (n) | \]
+
+\[ q_{max} = \frac{\Delta_s}{2} UTN \]
+
+\section{Medios de transmisión}
+\label{medios_de_transmision}
+
+\subsection{Generales}
+\label{sub:generales}
+
+
+\subsubsection{Ideales}
+\label{ssub:ideales}
+
+La señal solo se verá afectada por un factor de escala y un retardo. Su función
+de transferencia será:
+
+\[ H(f) = k e^{-j \omega t_0} \]
+
+\subsubsection{Velocidad}
+\label{ssub:velocidad}
+
+Retardo de fase y retardo de grupo:
+
+\[ t_{fase} = \frac{\beta(f_0)}{\omega_0} d \]
+
+\[ t_{grupo} = \frac{1}{2\pi} \frac{\partial \beta(f)}{\partial f} d \]
+
+\subsection{Líneas metálicas}
+\label{sub:lineas_metalicas}
+
+\subsubsection{Parámetros de transmisión}
+\label{ssub:parametros_de_transmision}
+
+\[ Z_0 = \sqrt{\frac{R + j \omega L}{G + j \omega C}} \]
+
+\[ \gamma = \sqrt{(R + j \omega L)(G + j \omega C)} \]
+
+\subsubsection{Caso general de líneas de transmisión}
+\label{ssub:caso_general_de_lineas_de_transmision}
+
+Tensión incidente al inicio de la línea:
+
+\[ v_i (0) = \frac{E}{2} \frac{Z(0) + Z_0}{Z(0) + Z_g} \]
+
+Coeficiente de reflexión:
+
+\[ \rho (d) = \frac{Z(d) - Z_0}{Z(d) + Z_0} \]
+
+\[ \rho(0) = \rho(d) e^{-2 \gamma d} \]
+
+Tensión:
+
+\[ v(d) = v_i [1 + \rho (d) ] e^{- \alpha d} \]
+
+\subsubsection{Aproximación de alta frecuencia}
+\label{ssub:aproximacion_de_alta_frecuencia}
+
+Se produce distorsión lineal (solamente de amplitud).
+
+\[ Z_0 \approx \frac{L}{C} \quad \gamma \approx = \frac{R}{2 z_0} \quad
+\beta \approx \omega \sqrt{LC} \]
+
+\subsubsection{Línea sin distorsión}
+\label{ssub:linea_sin_distorsion}
+
+Condición de \textbf{Heaviside}: $ RC = LG $.
+
+\subsection{Fibra óptica}
+\label{sub:fibra_optica}
+
+\subsubsection{Dispersión en las fibras monomodo}
+\label{ssub:dispersion_en_las_fibras_monomodo}
+
+Dispersión de guía-onda:
+
+\[ G(\lambda)[ns/nm \cdot km] \approx - \frac{\lambda [nm]}{4 \pi a^2 [nm] n_1
+c[km/ns]} \]
+
+\subsubsection{Dispersión en las fibras multimodo}
+\label{ssub:dispersion_en_las_fibras_multimodo}
+
+Dispersión modal:
+
+\[ \sigma_{mod} [ns] = 0.187 \frac{d^{\gamma}[km]}{B_0 [GHz \cdot km]} \]
+
+\subsection{Radio}
+\label{sub:radio}
+
+\subsubsection{Pérdidas}
+\label{ssub:perdidas}
+
+\[ L_{bf} [dB] = 92.45 + 20 \log{d[km]} + 20 \log{f [GHz]} \]
+
+\subsubsection{Antenas}
+\label{ssub:antenas}
+
+Parabólicas reales:
+
+\[ G [dB] = 20.4 + 10 \log{k} + 20 \log{D[m]} + 20 \log{f[GHz]} \]
+
+
+\section{Distorsión de la señal}
+\label{distorsion_de_la_senal}
+
+\subsection{Ruido}
+\label{sub:ruido}
+
+\[ n_0 = k t b \]
+
+\subsubsection{Atenuadores}
+\label{ssub:atenuadores}
+
+Para atenuadores pasivos con factor de atenuación $ a $, figura de ruido $ f $,
+temperatura equivalente de ruido $ t_e $, temperatura de referencia $ t_0 $ y
+temperatura del atenuador $ t_{at} $.
+
+\[ f = 1 + (a-1) \frac{t_e}{t_0} \]
+
+\[ t_e = t_{at} (a -1) \]
+
+\subsubsection{Amplificadores}
+\label{ssub:amplificadores}
+
+\[ f = \frac{t_e}{t_0} +1 \]
+
+\[ t_e = t_0 (f - 1) \]
+
+\section{Sistemas de transmisión digital}
+\label{sistemas_de_transmision_digital}
+
+\subsection{QAM}
+\label{sub:qam}
+
+\[ b = v_t (1+\alpha) \]
+
+\[ v_t = \frac{v_b}{\log_2 M} \]
+
+\[ P_e = 2Q \left( \sqrt{\frac{6 E_s}{N_0 (M-1)}} \right) \]
+\[ = 2Q \frac{6 (1 + \alpha)}{(M-1)} \frac{s}{n} \]
+
+\[ E_s = p_r \cdot T_s \]
+
+\[ T_s = \frac{1}{v_t} \]
+
+\[ v_t = \frac{R}{\log_2 M} \]
+
+\subsection{Fibra óptica}
+\label{sub:fibra_optica}
+
+\[ \sigma^2 = \left| \frac{\lambda^2 D(\lambda)}{2 \pi c} \right| d \]
+
+\subsubsection{Limitación por dispersión}
+\label{ssub:limitacion_por_dispersion}
+
+Condición para que $ PP $ sea menor a $ 2 dB $:
+
+\[ \sigma \leq 0.498 T_b \]
+
+\[ \sigma_{\lambda} = \frac{\Delta \lambda}{2.35} \]
+
+\begin{itemize}
+		\item Gran ancho espectral:
+				\[ \sigma_{\lambda} \gg 1 nm \]
+		\item Casi monocromáticas:
+				\[ \sigma_{\lambda} < 0.001 nm \]
+\end{itemize}
+
+\subsubsection{EDFA}
+\label{ssub:edfa}
+
+\[ \eta_{ASE} = \frac{fhgv}{2} \quad \left[\frac{W}{Hz}\right] \]
+
+\[ v = \frac{c}{\lambda} \]
+
+\end{document}
